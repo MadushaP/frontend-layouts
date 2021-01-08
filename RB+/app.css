@@ -1,0 +1,73 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+#menu {
+  background-color: #020011;
+  height: 100%;
+  width: 400px;
+  float: right;
+}
+
+#carousel-container {
+  background-color: red;
+  height: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+#carouselRow {
+  background-color: green;
+  width: 1000px;
+  height: 80%;
+  top: 10%;
+  position: absolute;
+  display: flex;
+}
+
+.carouselItem {
+  background-color: purple;
+  width: 300px;
+  height: 100%;
+  margin-right: 20px;
+}
+
+.menuItem {
+  border: 1px solid white;
+  background-color: #020011;
+  height: 16.66%;
+  position: relative;
+}
+
+.menuText {
+  color: white;
+  font-size: 35px;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.menuItem:hover {
+  background-color: #1a1824;
+}
+
+#slideLeft {
+    top: 45%;
+    position: absolute;
+    font-size: 20px;
+    height: 10%;
+}
+
+#slideRight{
+    top: 45%;
+    right:0;
+    position: absolute;
+    font-size: 20px;
+    height: 10%;
+}
