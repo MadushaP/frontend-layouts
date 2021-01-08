@@ -14,7 +14,7 @@ function slide(direction) {
         currentIndex--
     }
 
-    currentOffset -= offset 
+    currentOffset -= offset
 
     if (currentIndex < 0) {
         currentIndex = 0
