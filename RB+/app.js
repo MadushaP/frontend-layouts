@@ -1,15 +1,32 @@
 
-
+let currentIndex = 0
+let previousIndex = 0
 function slide(direction) {
     let currentOffset = parseInt(document.getElementById('carouselRow').style.left)
-    let carouselItemWidth = document.getElementsByClassName('carouselItem')[0].clientWidth
-  
-    currentOffset -= direction == "right" ? carouselItemWidth : -carouselItemWidth
+    let offset = 80
+    previousIndex = currentIndex
 
-    let maxOffset = (-carouselItemWidth * 3) + 40
+    if (direction == "right") {
+        currentIndex++
+    }
+    else {
+        offset = -offset
+        currentIndex--
+    }
 
-    if (currentOffset > 40 || currentOffset <= maxOffset)
+    currentOffset -= offset 
+
+    if (currentIndex < 0) {
+        currentIndex = 0
         return
+    }
 
-    document.getElementById('carouselRow').style.left = currentOffset + "px"
+    if (currentIndex > 2) {
+        currentIndex = 2
+        return
+    }
+
+    document.getElementById('carouselRow').style.left = currentOffset + "%"
+    document.getElementsByClassName('carouselItem')[previousIndex].classList.remove('selected')
+    document.getElementsByClassName('carouselItem')[currentIndex].classList.add('selected')
 }
