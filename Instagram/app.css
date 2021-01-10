@@ -1,0 +1,88 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+#topNav {
+  position: fixed;
+  background-color: white;
+  height: 50px;
+  width: 100%;
+  border-bottom: 1px solid #dbdbdb;
+  display: flex;
+  padding: 0px 20px 0px;
+}
+
+#logoContainer {
+  height: 50;
+  width: 100px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+#logo {
+  width: 100%;
+  margin-top: 7px;
+}
+
+#search {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 215px;
+  height: 28px;
+  border: 1px solid #dbdbdb;
+  background-color: #fafafa;
+}
+
+#magnify-logo {
+  left: 7px;
+  position: relative;
+  font-size: 14px;
+  top: 2px;
+  margin-right: 5px;
+}
+
+#menu-container {
+  top: 15px;
+  height: 100%;
+  position: absolute;
+  right: 97px;
+}
+
+.menu-logo {
+  font-size: 25px;
+  padding: 8px;
+  position: relative;
+  cursor: pointer;
+}
+
+.menu-logo:hover {
+  filter: brightness(0.8);
+}
+
+input {
+  position: relative;
+  height: 100%;
+  padding: 0;
+  border: none;
+  width: 87%;
+  outline: none;
+  background-color: #fafafa;
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+  padding-right: 30px;
+}
+
+#profile-picture {
+  position: absolute;
+  height: 23px;
+  border-radius: 50%;  
+  right: -37px;
+}
