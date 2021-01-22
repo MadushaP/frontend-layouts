@@ -4,7 +4,7 @@
 <head>
     <link rel="stylesheet" href="app.css">
     </link>
-    <script src="app.js"></script>
+
 </head>
 
 <body>
@@ -34,11 +34,18 @@
     </div>
 
     <div id="main-container">
-        <div id="story-container"></div>
-        <div id="picture">
      
+         <div id="story-container">
+        <button class="story-navigate left" onclick="navigate('back')">  < </button>
+        <button class="story-navigate right" onclick="navigate('next')"> > </button>
+
+         <div id="stories" style="right:0"></div>
+         </div>
+        <div id="picture">
         </div>
     </div>
 </body>
+<script src="profiles.js"></script>
+<script src="app.js"></script>
 
 </html>
