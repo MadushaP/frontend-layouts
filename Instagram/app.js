@@ -19,7 +19,13 @@ let pageValidator = () => {
     }
 }
 
+let buttonBackOff = false
+
 let navigate = (direction) => {
+    if(buttonBackOff)
+      return 
+      console.log("pressed")
+
     if (direction == "next") {
         currentPage++
         pageValidator()
@@ -34,6 +40,9 @@ let navigate = (direction) => {
         currentPos.value -= 600
         storyContainer.style.right = currentPos.value + "px"
     }
+    buttonBackOff = true
+    setTimeout(() => {buttonBackOff = false}, 500)
+
 }
 
 
