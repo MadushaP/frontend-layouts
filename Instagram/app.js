@@ -77,8 +77,13 @@ let loadStories = () => {
         image.src = `https://randomuser.me/api/portraits/${gender}/${randomId}.jpg?` + i + new Date().getTime();
         allProfiles[i].src = image.src
     }
+}
+
+let loadPictures = () => {
 
 }
 
 loadStories()
+loadPicures()
+
 
