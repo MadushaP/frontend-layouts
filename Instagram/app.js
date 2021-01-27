@@ -79,8 +79,8 @@ let loadStories = () => {
     }
 }
 
-let loadPictures = () => {
-
+let loadPicures = () => {
+    return
 }
 
 loadStories()

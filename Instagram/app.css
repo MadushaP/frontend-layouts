@@ -108,6 +108,7 @@ input {
   border: 1px solid #dbdbdb;
   display: flex;
   overflow: hidden;
+  border-radius: 2px;
 }
 
 #stories {
@@ -178,10 +179,10 @@ input {
 }
 
 #pictures {
- height: 100%;
- margin: auto;
- width: 600px;
- position: relative;
+  height: 100%;
+  margin: auto;
+  width: 600px;
+  position: relative;
 }
 
 .picture-container {
@@ -189,30 +190,85 @@ input {
   height: 20%;
   width: 600px;
   margin-top: 25px;
-  border: 1px solid #dbdbdb;
- }
+  border-radius: 3px;
+}
 
- .picture-header {
+.picture-header {
   height: 60px;
-  background-color: red;
- }
+  border: 1px solid #dbdbdb;
+  padding-left: 20px;
+  display: flex;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
 
- .picture-body {
+.picture-header .display-picture {
+  height: 100%;
+  width: 8.5%;
+}
+
+.picture-header .display-picture img {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  margin-top: 14px;
+}
+
+.picture-header .name {
+  height: 100%;
+  border-radius: 50%;
+  width: 80%;
+  vertical-align: middle;
+  line-height: 60px;
+  color: #262626;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.picture-header .bread-crumb {
+  height: 32px;
+  width: 32px;
+  position: absolute;
+  right: 10px;
+  top: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  text-align: center;
+  line-height: 26px;
+  cursor: pointer;
+}
+
+.picture-body {
   height: 600px;
-  background-color: green;
- }
+  border: 1px solid #dbdbdb;
+  border-top: none;
+  background: url('https://www.lyon-ortho-clinic.com/files/cto_layout/img/placeholder/camera.jpg');
+  background-position: -317px -90px;
+}
 
- .picture-icon-row {
-   height: 40px;
-   background-color: blue;
- }
 
- .comments {
-  background-color: yellow;
+.picture-body img {
+ height: 100%;
+ width: 100%;
+}
+.picture-icon-row {
+  height: 40px;
+  border: 1px solid #dbdbdb;
+  border-top: none;
+}
+
+.comments {
   height: 120px;
- }
+  border: 1px solid #dbdbdb;
+  border-top: none;
+}
 
- .comment-input {
-  background-color: grey;
+.comment-input {
   height: 50px;
- }
+  border: 1px solid #dbdbdb;
+  border-top: none;
+}
