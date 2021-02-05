@@ -68,7 +68,7 @@ body {
   filter: brightness(1.9);
 }
 
-input {
+#search input {
   position: relative;
   height: 100%;
   padding: 0;
@@ -133,6 +133,7 @@ input {
   box-shadow: 0px 0px 0px 2px #dd3270;
   padding: 2px;
   user-select: none;
+  animation: fadein 1s;
 }
 
 .story:hover {
@@ -214,10 +215,8 @@ input {
   margin-top: 14px;
 }
 
-.picture-header .name {
-  height: 100%;
+.text-bold {
   border-radius: 50%;
-  width: 80%;
   vertical-align: middle;
   line-height: 60px;
   color: #262626;
@@ -246,29 +245,96 @@ input {
   height: 600px;
   border: 1px solid #dbdbdb;
   border-top: none;
-  background: url('https://www.lyon-ortho-clinic.com/files/cto_layout/img/placeholder/camera.jpg');
+  background-color: #d6d4d4;
   background-position: -317px -90px;
+  animation: color;
+  animation-duration: 2s;
+  animation-iteration-count: 3;
 }
 
+@keyframes color {
+  0% {
+    background-color: rgb(224, 224, 224);
+  }
+  50% {
+    background-color: rgb(189, 186, 186);
+  }
+  100% {
+    background-color: rgb(224, 224, 224);
+  }
+}
 
 .picture-body img {
- height: 100%;
- width: 100%;
+  height: 100%;
+  width: 100%;
+  animation: fadein 1s;
 }
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .picture-icon-row {
-  height: 40px;
+  height: 12px;
   border: 1px solid #dbdbdb;
   border-top: none;
+  border-bottom: none;
+  padding-left: 15px;
+  padding-top: 13px;
+  padding-bottom: 16px;
+}
+
+.picture-icon-row img {
+  margin-right: 8px;
+  cursor: pointer;
 }
 
 .comments {
   height: 120px;
   border: 1px solid #dbdbdb;
   border-top: none;
+  padding-left: 15px;
 }
 
 .comment-input {
   height: 50px;
   border: 1px solid #dbdbdb;
   border-top: none;
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+}
+
+.comment-input div {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  color: #0095f6;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.comment-input input::placeholder {
+  padding-right: 500px;
+  color: #a0a0a0;
+}
+
+.comment-input div input {
+  width: 100%;
+  height: 80%;
+  padding: 0;
+  border: none;
+  width: 90%;
+  outline: none;
+  background-color: white;
+}
+
+.comment-input img {
+  margin: auto;
 }
