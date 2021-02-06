@@ -188,9 +188,8 @@ body {
 
 .picture-container {
   position: relative;
-  height: 20%;
   width: 600px;
-  margin-top: 25px;
+  margin-top: 60px;
   border-radius: 3px;
 }
 
@@ -337,4 +336,11 @@ body {
 
 .comment-input img {
   margin: auto;
+}
+.comments .text-bold {
+  line-height: 20px;
+}
+
+.comments .text-bold span{
+  font-weight: 400;
 }
