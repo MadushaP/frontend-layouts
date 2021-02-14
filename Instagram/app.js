@@ -14,7 +14,6 @@ let pageValidator = () => {
     } else if (currentPage == 1) {
         document.querySelector('.story-navigate.left').style.display = "none"
         document.querySelector('.story-navigate.right').style.display = "block"
-
     }
 }
 
