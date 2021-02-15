@@ -3,7 +3,7 @@ let profiles = mockData
 let pages = 1
 let currentPage = 1
 
-let pageValidator = () => {
+const pageValidator = () => {
     if (currentPage > 1 && currentPage < pages) {
         document.querySelector('.story-navigate.right').style.display = "block"
         document.querySelector('.story-navigate.left').style.display = "block"
@@ -19,7 +19,7 @@ let pageValidator = () => {
 
 let buttonBackOff = false
 
-let navigate = (direction) => {
+const navigate = (direction) => {
     if (buttonBackOff)
         return
 
@@ -43,9 +43,7 @@ let navigate = (direction) => {
 }
 
 
-
-let loadStories = () => {
-
+const loadStories = () => {
     if (profiles.length < 7) {
         document.querySelector('.story-navigate.right').style.display = "none"
     } else {
@@ -54,7 +52,6 @@ let loadStories = () => {
 
 
     let storiesHTML = profiles.map(profile => {
-
         return (
             `<div class="story">
               <img class="story-image" src=${profile.image}></img>
@@ -71,7 +68,7 @@ let loadStories = () => {
     }
 }
 
-function randomProfilePic(i) {
+const randomProfilePic = (i) => {
     var image = new Image()
     let randomId = Math.floor(Math.random() * 99) + 1
     let gender = Math.floor(Math.random() * 2) + 1
@@ -81,11 +78,11 @@ function randomProfilePic(i) {
     return image
 }
 
-function numberWithCommas(x) {
+const numberWithCommas = (x) => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-let loadPictures = () => {
+const loadPictures = () => {
     let pictureContainer = document.querySelector('#pictures')
 
     for (let i = 0; i < 10; i++) {
@@ -148,11 +145,8 @@ let loadPictures = () => {
         wrapper.innerHTML = template
         pictureContainer.appendChild(wrapper)
     }
-
-
 }
 
 loadStories()
 loadPictures()
-
 
