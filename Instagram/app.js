@@ -82,6 +82,37 @@ const numberWithCommas = (x) => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+const input = document.querySelector("#pictures > .picture-container > .comment-input > div:nth-child(2) > input")
+const postButton = document.querySelector("#pictures > div.picture-container > div.comment-input > button")
+input.addEventListener('input', inputCheck);
+
+function inputCheck(e) {
+    if (e.target.value.length > 0) {
+        postButton.disabled = false
+        postButton.style.color = '#0095f6'
+    }
+}
+
+const submitComment = () => {
+    let inputText = document.querySelector("#pictures > .picture-container > .comment-input > div:nth-child(2) > input").value
+    postButton.style.color = '#b3dffc'
+    postButton.disabled = true
+    postButton.style.cursor = 'pointer'
+
+    let containerDom = document.querySelector("#pictures  .picture-container .comments")
+    let container = getComputedStyle(containerDom)
+    containerDom.style.height = `${parseInt(container.height, 10) + 20}px`
+
+
+    var div = document.createElement('div')
+    div.innerHTML = `<div class="text-bold">
+                     You <span> ${inputText}
+                     </span>
+                    </div>`
+    containerDom.appendChild(div)
+    document.querySelector("#pictures > .picture-container > .comment-input > div:nth-child(2) > input").value = null
+}
+
 const loadPictures = () => {
     let pictureContainer = document.querySelector('#pictures')
 
@@ -137,7 +168,7 @@ const loadPictures = () => {
 <div class="comment-input">
     <div> <img src="./images/smiley.svg"></img></div>
     <div> <input placeholder="Add comment"> </input> </div>
-    <div> Post </div>
+    <button> Post </button>
 </div>
 </div>`
 

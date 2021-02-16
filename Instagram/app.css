@@ -312,11 +312,19 @@ body {
   display: flex;
   justify-items: center;
   align-items: center;
-  color: #0095f6;
+}
+.comment-input button {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  color: #b3dffc;
+  background-color: white;
+  border: none;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif;
   font-size: 14px;
   font-weight: 600;
+  outline: none;
 }
 
 .comment-input input::placeholder {
