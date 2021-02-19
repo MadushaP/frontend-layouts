@@ -39,7 +39,6 @@ const navigate = (direction) => {
     }
     buttonBackOff = true
     setTimeout(() => { buttonBackOff = false }, 500)
-
 }
 
 
@@ -49,7 +48,6 @@ const loadStories = () => {
     } else {
         pages = Math.ceil(profiles.length / 6)
     }
-
 
     let storiesHTML = profiles.map(profile => {
         return (
@@ -82,24 +80,24 @@ const numberWithCommas = (x) => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-const input = document.querySelector("#pictures > .picture-container > .comment-input > div:nth-child(2) > input")
-const postButton = document.querySelector("#pictures > div.picture-container > div.comment-input > button")
-input.addEventListener('input', inputCheck);
-
-function inputCheck(e) {
+document.addEventListener('input', function (e) {
+    let commentContainer = e.target.parentElement.parentElement
+    let postButton = commentContainer.querySelector('.comment-input button')
     if (e.target.value.length > 0) {
         postButton.disabled = false
         postButton.style.color = '#0095f6'
+        postButton.style.cursor = 'pointer'
+    } else {
+        postButton.style.color = '#b3dffc'
+        postButton.disabled = true
+        postButton.style.cursor = 'default'
     }
-}
+});
 
-const submitComment = () => {
-    let inputText = document.querySelector("#pictures > .picture-container > .comment-input > div:nth-child(2) > input").value
-    postButton.style.color = '#b3dffc'
-    postButton.disabled = true
-    postButton.style.cursor = 'pointer'
-
-    let containerDom = document.querySelector("#pictures  .picture-container .comments")
+const submitComment = (elem) => {
+    let containerDom = elem.parentElement.parentElement.querySelector('.comments')
+    let inputText = elem.parentElement.querySelector('div input').value
+    let postButton = elem.parentElement.querySelector('div button')
     let container = getComputedStyle(containerDom)
     containerDom.style.height = `${parseInt(container.height, 10) + 20}px`
 
@@ -110,7 +108,10 @@ const submitComment = () => {
                      </span>
                     </div>`
     containerDom.appendChild(div)
-    document.querySelector("#pictures > .picture-container > .comment-input > div:nth-child(2) > input").value = null
+    elem.parentElement.querySelector('div input').value = null
+    postButton.style.color = '#b3dffc'
+    postButton.disabled = true
+    postButton.style.cursor = 'default'
 }
 
 const loadPictures = () => {
@@ -168,7 +169,7 @@ const loadPictures = () => {
 <div class="comment-input">
     <div> <img src="./images/smiley.svg"></img></div>
     <div> <input placeholder="Add comment"> </input> </div>
-    <button> Post </button>
+    <button disabled=false onclick="submitComment(this)"> Post </button>
 </div>
 </div>`
 
