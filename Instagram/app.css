@@ -57,6 +57,21 @@ body {
   right: 0;
 }
 
+#notifcation {
+  width: 18px;
+  height: 18px;
+  background-color: #ed4956;
+  position: absolute;
+  border-radius: 50%;
+  right: 5px;
+  top: 3px;
+  font-size: 11px;
+  text-align: center;
+  color:white;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height: 18px;
+}
+
 .menu-logo {
   font-size: 25px;
   padding: 8px;
@@ -349,6 +364,6 @@ body {
   line-height: 20px;
 }
 
-.comments .text-bold span{
+.comments .text-bold span {
   font-weight: 400;
 }
