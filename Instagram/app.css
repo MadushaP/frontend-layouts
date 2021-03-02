@@ -201,6 +201,10 @@ body {
   position: relative;
 }
 
+#pictures > div:last-child {
+  padding-bottom: 25px;
+}
+
 .picture-container {
   position: relative;
   width: 600px;

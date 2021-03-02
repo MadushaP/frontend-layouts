@@ -3,6 +3,27 @@ let profiles = mockData
 let pages = 1
 let currentPage = 1
 
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  }
+  
+function amountscrolled() {
+    var winheight = window.innerHeight || (document.documentElement || document.body).clientHeight
+    var docheight = document.documentElement.scrollHeight
+    var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
+    var trackLength = docheight - winheight
+    var pctScrolled = Math.floor(scrollTop / trackLength * 100) 
+    
+    if(pctScrolled == 100) {
+        loadPictures()
+    }
+    
+}
+
+window.addEventListener("scroll", function () {
+    amountscrolled()
+}, false)
+
 const pageValidator = () => {
     if (currentPage > 1 && currentPage < pages) {
         document.querySelector('.story-navigate.right').style.display = "block"
