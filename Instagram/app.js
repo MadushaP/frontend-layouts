@@ -3,21 +3,37 @@ let profiles = mockData
 let pages = 1
 let currentPage = 1
 
+const loadEmoji = () => {
+    new FgEmojiPicker({
+        trigger: ['.emoji'],
+        position: ['top', 'right'],
+        preFetch: true,
+        emit(obj, triggerElement) {
+            let inputDom = triggerElement.parentElement.parentElement.querySelector('input')
+            let postButton = triggerElement.parentElement.parentElement.querySelector('button')
+            postButton.disabled = false
+            postButton.style.color = '#0095f6'
+            postButton.style.cursor = 'pointer'
+            inputDom.value += obj.emoji
+        }
+    })
+}
+
 window.onbeforeunload = function () {
     window.scrollTo(0, 0);
-  }
-  
+}
+
 function amountscrolled() {
     var winheight = window.innerHeight || (document.documentElement || document.body).clientHeight
     var docheight = document.documentElement.scrollHeight
     var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
     var trackLength = docheight - winheight
-    var pctScrolled = Math.floor(scrollTop / trackLength * 100) 
-    
-    if(pctScrolled == 100) {
+    var pctScrolled = Math.floor(scrollTop / trackLength * 100)
+
+    if (pctScrolled == 100) {
         loadPictures()
     }
-    
+
 }
 
 window.addEventListener("scroll", function () {
@@ -188,7 +204,7 @@ const loadPictures = () => {
     </div>
 </div>
 <div class="comment-input">
-    <div> <img src="./images/smiley.svg"></img></div>
+    <div> <img class="emoji" src="./images/smiley.svg"></img></div>
     <div> <input placeholder="Add comment"> </input> </div>
     <button disabled=false onclick="submitComment(this)"> Post </button>
 </div>
@@ -200,6 +216,7 @@ const loadPictures = () => {
     }
 }
 
+
 loadStories()
 loadPictures()
-
+loadEmoji()
