@@ -78,6 +78,9 @@ const navigate = (direction) => {
     setTimeout(() => { buttonBackOff = false }, 500)
 }
 
+const navigateStory = (story) => {
+    document.querySelector('#story-overlay').style.display = 'block'
+}
 
 const loadStories = () => {
     if (profiles.length < 7) {
@@ -88,7 +91,7 @@ const loadStories = () => {
 
     let storiesHTML = profiles.map(profile => {
         return (
-            `<div class="story">
+            `<div class="story" onclick="navigateStory(this)">
               <img class="story-image" src=${profile.image}></img>
               <div class="story-name">${profile.name}</div>
              </div>`)
