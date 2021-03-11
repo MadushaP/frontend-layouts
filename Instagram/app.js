@@ -81,8 +81,10 @@ const navigate = (direction) => {
 const navigateStory = (story) => {
     document.querySelector('#story-overlay').style.display = 'block'
     document.querySelector('#main-container').style.display = 'none'
+    setTimeout(() => {
+        document.querySelectorAll('.progress')[0].classList.add('full')
+    }, 100)
 
-    //refactor using a class active status instead
     let i = 1
     let progTimer = setInterval(() => {
         if (i == 5) {
@@ -90,16 +92,13 @@ const navigateStory = (story) => {
             document.querySelector('#story-overlay').style.display = 'none'
             document.querySelector('#main-container').style.display = 'block'
             document.querySelector('#top-nav').style.display = 'block'
-            document.querySelectorAll('.story-progress').forEach((node, index) =>  index != 0 ? node.innerHTML = null: null)
         }
-        
+
         document.querySelector('#active-story-pic').src = "https://picsum.photos/614/614?time=" + (new Date()).getTime()
-        document.querySelectorAll('.story-progress')[i].innerHTML = `<div class="progress"></div>`
+        document.querySelectorAll('.progress')[i-1].classList.remove('full')
+        document.querySelectorAll('.progress')[i].classList.add('full')
         i++
-    }, 4000)
-
-
-
+    }, 5000)
 }
 
 const loadStories = () => {

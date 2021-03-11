@@ -31,6 +31,29 @@ body {
   object-fit: cover;
 }
 
+#story-button-left {
+  position: absolute;
+  top: 50%;
+  left: -10%;
+}
+
+#story-button-right {
+  position: absolute;
+  top: 50%;
+  right: -10%;
+}
+
+#top-shadow {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  height: 500px;
+  width: 100%;
+  position: absolute;
+}
+
 #story-carousel > #story-progress-container {
   width: 100%;
   height: 20px;
@@ -54,17 +77,12 @@ body {
   width: 0%;
   height: 2px;
   position: relative;
-  background-color: white; 
-  animation: progress 4s linear;
+  background-color: white;
 }
 
-@keyframes progress {
-  from {
-    width: 0%
-  }
-  to {
-    width: 100%;
-  }
+.story-progress .progress.full {
+  width: 100%;
+  transition: 5s width linear;
 }
 
 #top-nav {
