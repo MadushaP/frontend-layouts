@@ -14,7 +14,60 @@ body {
   z-index: 300;
 }
 
-#topNav {
+#story-carousel {
+  height: 870px;
+  width: 500px;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+}
+
+#story-carousel > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#story-carousel > #story-progress-container {
+  width: 100%;
+  height: 20px;
+  margin-top: 10px;
+  display: flex;
+  position: absolute;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#story-progress-container .story-progress {
+  width: 90px;
+  height: 2px;
+  position: relative;
+  background-color: #696969;
+  margin-top: 10px;
+  margin-right: 2px;
+}
+
+.story-progress .progress {
+  width: 0%;
+  height: 2px;
+  position: relative;
+  background-color: white; 
+  animation: progress 4s linear;
+}
+
+@keyframes progress {
+  from {
+    width: 0%
+  }
+  to {
+    width: 100%;
+  }
+}
+
+#top-nav {
   position: fixed;
   background-color: white;
   height: 50px;
@@ -76,8 +129,9 @@ body {
   top: 3px;
   font-size: 11px;
   text-align: center;
-  color:white;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
   line-height: 18px;
 }
 
@@ -382,7 +436,5 @@ body {
 }
 
 .emoji {
-  cursor:pointer
+  cursor: pointer;
 }
-
-

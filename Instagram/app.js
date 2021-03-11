@@ -80,6 +80,26 @@ const navigate = (direction) => {
 
 const navigateStory = (story) => {
     document.querySelector('#story-overlay').style.display = 'block'
+    document.querySelector('#main-container').style.display = 'none'
+
+    //refactor using a class active status instead
+    let i = 1
+    let progTimer = setInterval(() => {
+        if (i == 5) {
+            clearTimeout(progTimer)
+            document.querySelector('#story-overlay').style.display = 'none'
+            document.querySelector('#main-container').style.display = 'block'
+            document.querySelector('#top-nav').style.display = 'block'
+            document.querySelectorAll('.story-progress').forEach((node, index) =>  index != 0 ? node.innerHTML = null: null)
+        }
+        
+        document.querySelector('#active-story-pic').src = "https://picsum.photos/614/614?time=" + (new Date()).getTime()
+        document.querySelectorAll('.story-progress')[i].innerHTML = `<div class="progress"></div>`
+        i++
+    }, 4000)
+
+
+
 }
 
 const loadStories = () => {
@@ -163,8 +183,6 @@ const loadPictures = () => {
         var picture = new Image();
         picture.src = "https://picsum.photos/614/614?time=" + (new Date()).getTime() + i;
         var profilePic = randomProfilePic()
-
-
 
         let template = `<div class="picture-container">
 <div class="picture-header">
