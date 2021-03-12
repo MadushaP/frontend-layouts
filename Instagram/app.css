@@ -25,6 +25,56 @@ body {
   border-radius: 10px;
 }
 
+#user-profile {
+  top: 33px;
+  height: 30px;
+  width: 400px;
+  position: absolute;
+}
+
+#user-profile img {
+  border-radius: 50%;
+  height: 32px;
+  margin-left: 15px;
+}
+
+#user-profile div {
+  display: inline-block;
+  line-height: 0px;
+  height: 25px;
+  margin-left: 3px;
+  color: white;
+  font-size: 14px;
+}
+
+#story-overlay-logo {
+  height: 29px;
+  width: 103px;
+  position: absolute;
+  margin-left: 10%;
+  margin-top: 12px;
+  user-select: none;
+
+}
+
+#story-overlay-close {
+  position: absolute;
+  right: 10%;
+  top: 20px;
+}
+
+#user-profile span {
+  display: inline-block;
+  height: 25px;
+  margin-left: 10px;
+  color: #d0d0d0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  font-size: 14px;
+  position: absolute;
+  top: 10px;
+}
+
 #story-carousel > img {
   width: 100%;
   height: 100%;
@@ -108,7 +158,7 @@ body {
 
 #logo {
   width: 100%;
-  margin-top: 7px;
+  margin-top: 12px;
 }
 
 #search {

@@ -78,27 +78,76 @@ const navigate = (direction) => {
     setTimeout(() => { buttonBackOff = false }, 500)
 }
 
-const navigateStory = (story) => {
+let currentStory = 0
+let progTimer
+
+const closeStoryOverlay = () => {
+    clearTimeout(progTimer)
+    document.querySelector('#story-overlay').style.display = 'none'
+    document.querySelector('#main-container').style.display = 'block'
+    document.querySelector('#top-nav').style.display = 'block'
+
+    document.querySelectorAll('.progress').forEach(element => {
+        element.classList.remove('full')
+    })
+    currentStory = 0
+}
+const autoNextStory = () => {
+    return setInterval(() => {
+        currentStory++
+        if (currentStory == 5) {
+            clearTimeout(progTimer)
+            closeStoryOverlay()
+            return
+        }
+
+        document.querySelector('#active-story-pic').src = "https://picsum.photos/614/614?time=" + (new Date()).getTime()
+        document.querySelectorAll('.progress')[currentStory - 1].classList.remove('full')
+        document.querySelectorAll('.progress')[currentStory].classList.add('full')
+    }, 5000)
+}
+
+const userStory = (story) => {
+    let [displayPictureDom, username] = story.children
+    document.querySelector('#user-profile').innerHTML = `<img src=${displayPictureDom.src}></img>
+                                                            <div class="text-bold">
+                                                                ${username.outerHTML}
+                                                            </div>
+                                                          <span>10h</span>`
+
+
     document.querySelector('#story-overlay').style.display = 'block'
     document.querySelector('#main-container').style.display = 'none'
     setTimeout(() => {
         document.querySelectorAll('.progress')[0].classList.add('full')
-    }, 100)
+    }, 10)
 
-    let i = 1
-    let progTimer = setInterval(() => {
-        if (i == 5) {
-            clearTimeout(progTimer)
-            document.querySelector('#story-overlay').style.display = 'none'
-            document.querySelector('#main-container').style.display = 'block'
-            document.querySelector('#top-nav').style.display = 'block'
+    progTimer = autoNextStory()
+}
+
+const navigateUserStory = (side) => {
+    clearTimeout(progTimer)
+    let progDom = document.querySelectorAll('.progress')
+    if (side == "right") {
+        currentStory++
+        if (currentStory == 5) {
+            closeStoryOverlay()
+            return
         }
+        progDom[currentStory - 1].classList.remove('full')
+        progDom[currentStory].classList.add('full')
+    } else {
+        currentStory--
+        if (currentStory == -1) {
+            closeStoryOverlay()
+            return
+        }
+        progDom[currentStory + 1].classList.remove('full')
+        progDom[currentStory].classList.add('full')
+    }
 
-        document.querySelector('#active-story-pic').src = "https://picsum.photos/614/614?time=" + (new Date()).getTime()
-        document.querySelectorAll('.progress')[i-1].classList.remove('full')
-        document.querySelectorAll('.progress')[i].classList.add('full')
-        i++
-    }, 5000)
+    document.querySelector('#active-story-pic').src = "https://picsum.photos/614/614?time=" + (new Date()).getTime()
+    progTimer = autoNextStory()
 }
 
 const loadStories = () => {
@@ -110,7 +159,7 @@ const loadStories = () => {
 
     let storiesHTML = profiles.map(profile => {
         return (
-            `<div class="story" onclick="navigateStory(this)">
+            `<div class="story" onclick="userStory(this)">
               <img class="story-image" src=${profile.image}></img>
               <div class="story-name">${profile.name}</div>
              </div>`)

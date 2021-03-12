@@ -9,6 +9,8 @@
 
 <body>
     <div id="story-overlay">
+        <img id="story-overlay-logo" style="cursor:pointer" src="images/inverse-logo.png"></img>
+        <img onclick="closeStoryOverlay()" id="story-overlay-close" style="cursor:pointer" src="images/close.svg"></img>
         <div id="story-carousel">
             <div id="top-shadow"></div>
             <div id="story-progress-container">
@@ -17,20 +19,23 @@
                 </div>
                 <div class="story-progress">
                     <div class="progress"></div>
-                </div>    
+                </div>
                 <div class="story-progress">
                     <div class="progress"></div>
-                </div>     
+                </div>
                 <div class="story-progress">
                     <div class="progress"></div>
-                </div>     
+                </div>
                 <div class="story-progress">
                     <div class="progress"></div>
-                </div>               
+                </div>
             </div>
-            <button id="story-button-left" class="story-navigate"> < </button>
-            <button id="story-button-right"  class="story-navigate"> > </button>
-            <img id="active-story-pic" src="https://picsum.photos/614/614">
+            <div id="user-profile"></div>
+            <button id="story-button-left" onclick="navigateUserStory('left')" class="story-navigate">
+                < </button>
+                    <button id="story-button-right" onclick="navigateUserStory('right')" class="story-navigate"> >
+                    </button>
+                    <img id="active-story-pic" src="https://picsum.photos/614/614">
         </div>
     </div>
     <div id="top-nav">
@@ -81,7 +86,6 @@
                 </div>
                 <div class="picture-body">
                     <img src="https://picsum.photos/614/614" />
-
                 </div>
                 <div class="picture-icon-row">
                     <img src="./images/heart.svg" style="height: 24px" />
@@ -120,6 +124,5 @@
 <script src="../Instagram/emoji-picker/fgEmojiPicker.js"></script>
 <script src="profiles.js"></script>
 <script src="app.js"></script>
-
 
 </html>
