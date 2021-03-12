@@ -1,5 +1,5 @@
 const mockData =  [
-    { image: 'images/pic.jpg', name: 'Your Story' },
+    { image: 'images/pic.jpg', name: 'Madusha' },
     { image: 'images/display-pictures/face1.jpg', name: 'Lukey' },
     { image: 'images/display-pictures/face2.jpg', name: 'Alex' },
     { image: 'images/display-pictures/face3.jpg', name: 'Vic' },

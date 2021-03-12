@@ -89,9 +89,12 @@ const closeStoryOverlay = () => {
 
     document.querySelectorAll('.progress').forEach(element => {
         element.classList.remove('full')
+        element.classList.remove('seen')
+
     })
     currentStory = 0
 }
+
 const autoNextStory = () => {
     return setInterval(() => {
         currentStory++
@@ -100,10 +103,11 @@ const autoNextStory = () => {
             closeStoryOverlay()
             return
         }
-
         document.querySelector('#active-story-pic').src = "https://picsum.photos/614/614?time=" + (new Date()).getTime()
         document.querySelectorAll('.progress')[currentStory - 1].classList.remove('full')
+        document.querySelectorAll('.progress')[currentStory - 1].classList.add('seen')
         document.querySelectorAll('.progress')[currentStory].classList.add('full')
+
     }, 5000)
 }
 
@@ -135,6 +139,7 @@ const navigateUserStory = (side) => {
             return
         }
         progDom[currentStory - 1].classList.remove('full')
+        progDom[currentStory - 1].classList.add('seen')
         progDom[currentStory].classList.add('full')
     } else {
         currentStory--
@@ -143,7 +148,8 @@ const navigateUserStory = (side) => {
             return
         }
         progDom[currentStory + 1].classList.remove('full')
-        progDom[currentStory].classList.add('full')
+        progDom[currentStory].classList.remove('seen')
+        setTimeout(() => { progDom[currentStory].classList.add('full') }, 10)
     }
 
     document.querySelector('#active-story-pic').src = "https://picsum.photos/614/614?time=" + (new Date()).getTime()
