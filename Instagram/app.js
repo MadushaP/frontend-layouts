@@ -254,7 +254,7 @@ const loadPictures = () => {
     <img src="${picture.src}" />
 </div>
 <div class="picture-icon-row">
-    <img src="./images/heart.svg" style="height: 24px" />
+    <img onclick="like(this)" src="./images/heart.svg" style="height: 24px" />
     <img src="./images/comment.svg" />
     <img src="./images/direct.svg" />
     <img src="./images/favourite.svg" style="float: right; margin-right: 15px;">
@@ -291,6 +291,22 @@ const loadPictures = () => {
     }
 }
 
+const like = (heart) => {
+    let heartImage = heart.src.split("/").pop() 
+    let oldLikes = heart.parentElement.nextElementSibling.children[0].textContent.trim().split(" ")[0].replace(',','')
+    if (heartImage == "heart.svg") {
+        let newLikes = numberWithCommas(parseInt(oldLikes) + 1)
+        heart.src = "images/heart-liked.svg"
+        heart.classList.add("heart-active")
+        heart.parentElement.nextElementSibling.children[0].innerHTML = `${newLikes} likes`
+    }
+    else {
+        let newLikes = numberWithCommas(parseInt(oldLikes)  - 1)
+        heart.src = "images/heart.svg"
+        heart.classList.remove("heart-active")
+        heart.parentElement.nextElementSibling.children[0].innerHTML = `${newLikes} likes`
+    }
+}
 
 loadStories()
 loadPictures()
