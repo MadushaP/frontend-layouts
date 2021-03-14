@@ -61,21 +61,20 @@ let buttonBackOff = false
 const navigate = (direction) => {
     if (buttonBackOff)
         return
+    
+    let currentPos = storyContainer.style.right
 
     if (direction == "next") {
         currentPage++
         pageValidator()
-        let currentPos = storyContainer.computedStyleMap().get('right');
-        currentPos.value += 600
-        storyContainer.style.right = currentPos.value + "px"
-
+        currentPos = parseInt(currentPos) + 600
     } else {
         currentPage--
         pageValidator()
-        let currentPos = storyContainer.computedStyleMap().get('right');
-        currentPos.value -= 600
-        storyContainer.style.right = currentPos.value + "px"
+        currentPos = parseInt(currentPos) - 600
     }
+    storyContainer.style.right = currentPos + "px"
+
     buttonBackOff = true
     setTimeout(() => { buttonBackOff = false }, 500)
 }
@@ -121,7 +120,7 @@ const autoNextStory = () => {
         document.querySelectorAll('.progress')[currentStory - 1].classList.add('seen')
         document.querySelectorAll('.progress')[currentStory].classList.add('full')
 
-    }, 5000)
+    }, 50000)
 }
 
 const userStory = (story) => {

@@ -135,6 +135,11 @@ body {
   width: 100%;
   transition: 5s width linear;
 }
+
+.seen {
+  transition: none;
+}
+
 .story-progress .progress.seen {
   width: 100%;
 }
@@ -234,7 +239,6 @@ body {
 }
 
 #profile-picture {
-  position: absolute;
   height: 23px;
   border-radius: 50%;
   right: -22%;
@@ -313,19 +317,22 @@ body {
   font-size: 18px;
   text-align: center;
   color: #b3a4a4;
+  background-color: #e5e1e1;
   font-weight: bold;
   outline: none;
 }
 
 .story-navigate.left {
   left: 0;
-  margin-left: 5px;
+  margin-left: 3px;
   display: none;
+  background-color: #e5e1e1;
 }
 
 .story-navigate.right {
   right: 0;
-  margin-right: 5px;
+  margin-right: 3px;
+  background-color: #e5e1e1;
 }
 
 #pictures {
@@ -609,7 +616,6 @@ body {
   }
 
   #story-progress-container .story-progress {
-    /* width: 100vw; */
     height: 0.5vw;
     margin-right: 6px;
     width: 108px;
@@ -617,9 +623,11 @@ body {
   #story-button-left {
     display: none;
   }
+
   #story-button-right {
     display: none;
   }
+
   #active-story-pic {
     border-radius: 0px;
   }
