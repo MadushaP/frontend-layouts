@@ -2,6 +2,8 @@ let storyContainer = document.querySelector('#stories')
 let profiles = mockData
 let pages = 1
 let currentPage = 1
+var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
 
 const loadEmoji = () => {
     new FgEmojiPicker({
@@ -81,6 +83,14 @@ const navigate = (direction) => {
 let currentStory = 0
 let progTimer
 
+const handleMouse = (e) => {
+    if (e.changedTouches[0].pageX < (window.innerWidth / 2)) {
+        navigateUserStory("left")
+    } else {
+        navigateUserStory("right")
+    }
+}
+
 const closeStoryOverlay = () => {
     clearTimeout(progTimer)
     document.querySelector('#story-overlay').style.display = 'none'
@@ -93,6 +103,8 @@ const closeStoryOverlay = () => {
 
     })
     currentStory = 0
+    document.removeEventListener("touchstart", handleMouse);
+    document.getElementsByTagName('html')[0].style.position = null
 }
 
 const autoNextStory = () => {
@@ -103,7 +115,8 @@ const autoNextStory = () => {
             closeStoryOverlay()
             return
         }
-        document.querySelector('#active-story-pic').src = "https://picsum.photos/614/614?time=" + (new Date()).getTime()
+        let picSumResolution = isMobile ? '1000' : '614'
+        document.querySelector('#active-story-pic').src = `https://picsum.photos/${picSumResolution}?time=` + (new Date()).getTime()
         document.querySelectorAll('.progress')[currentStory - 1].classList.remove('full')
         document.querySelectorAll('.progress')[currentStory - 1].classList.add('seen')
         document.querySelectorAll('.progress')[currentStory].classList.add('full')
@@ -122,6 +135,10 @@ const userStory = (story) => {
 
     document.querySelector('#story-overlay').style.display = 'block'
     document.querySelector('#main-container').style.display = 'none'
+    document.getElementsByTagName('html')[0].style.position = 'fixed'
+
+
+    document.addEventListener("touchstart", handleMouse);
     setTimeout(() => {
         document.querySelectorAll('.progress')[0].classList.add('full')
     }, 10)
@@ -152,7 +169,9 @@ const navigateUserStory = (side) => {
         setTimeout(() => { progDom[currentStory].classList.add('full') }, 10)
     }
 
-    document.querySelector('#active-story-pic').src = "https://picsum.photos/614/614?time=" + (new Date()).getTime()
+    let picSumResolution = isMobile ? '1000' : '614'
+    document.querySelector('#active-story-pic').src = `https://picsum.photos/${picSumResolution}?time=` + (new Date()).getTime()
+
     progTimer = autoNextStory()
 }
 
@@ -292,8 +311,8 @@ const loadPictures = () => {
 }
 
 const like = (heart) => {
-    let heartImage = heart.src.split("/").pop() 
-    let oldLikes = heart.parentElement.nextElementSibling.children[0].textContent.trim().split(" ")[0].replace(',','')
+    let heartImage = heart.src.split("/").pop()
+    let oldLikes = heart.parentElement.nextElementSibling.children[0].textContent.trim().split(" ")[0].replace(',', '')
     if (heartImage == "heart.svg") {
         let newLikes = numberWithCommas(parseInt(oldLikes) + 1)
         heart.src = "images/heart-liked.svg"
@@ -301,7 +320,7 @@ const like = (heart) => {
         heart.parentElement.nextElementSibling.children[0].innerHTML = `${newLikes} likes`
     }
     else {
-        let newLikes = numberWithCommas(parseInt(oldLikes)  - 1)
+        let newLikes = numberWithCommas(parseInt(oldLikes) - 1)
         heart.src = "images/heart.svg"
         heart.classList.remove("heart-active")
         heart.parentElement.nextElementSibling.children[0].innerHTML = `${newLikes} likes`

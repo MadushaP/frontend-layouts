@@ -54,7 +54,6 @@ body {
   margin-left: 10%;
   margin-top: 12px;
   user-select: none;
-
 }
 
 #story-overlay-close {
@@ -153,7 +152,6 @@ body {
 }
 
 #logoContainer {
-  height: 50;
   width: 100px;
   justify-content: center;
   align-items: center;
@@ -521,10 +519,141 @@ body {
     transform: scale(1);
   }
   50% {
-    transform: scale(2.0);
+    transform: scale(2);
   }
   0% {
     transform: scale(1);
   }
+}
 
+@media screen and (max-device-width: 480px) {
+  html {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    zoom: 1.6;
+  }
+
+  * {
+    touch-action: manipulation;
+  }
+
+  #story-overlay-logo {
+    display: none;
+  }
+
+  #story-overlay {
+    width: 100vw;
+  }
+
+  #story-carousel {
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translate(0%, 0%);
+    border-radius: 20px;
+  }
+
+  #search {
+    display: none;
+  }
+
+  #top-shadow {
+    width: 100vw;
+    border-radius: 0px;
+  }
+  #story-carousel > img {
+    width: 100vw;
+    height: 100vh;
+
+    border-radius: 0px;
+  }
+
+  #user-profile {
+    zoom: 1.3;
+  }
+
+  #user-profile div {
+    font-size: 16px;
+  }
+
+  #user-profile span {
+    font-size: 14px;
+  }
+
+  #story-carousel > #story-progress-container {
+    width: 95vw;
+  }
+
+  .story-navigate.left {
+    display: none;
+  }
+
+  .story-navigate.right {
+    display: none;
+  }
+
+  .story-progress .progress.full {
+    width: 100%;
+    transition: 5s width linear;
+    height: 0.5vw;
+  }
+
+  .story-progress .progress.seen {
+    height: 0.5vw;
+  }
+
+  #story-progress-container .story-progress {
+    /* width: 100vw; */
+    height: 0.5vw;
+    margin-right: 6px;
+    width: 108px;
+  }
+  #story-button-left {
+    display: none;
+  }
+  #story-button-right {
+    display: none;
+  }
+  #active-story-pic {
+    border-radius: 0px;
+  }
+
+  #logoContainer {
+    margin-left: 2%;
+  }
+
+  #story-container {
+    margin-top: 0px;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  #story-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  #menu-container {
+    margin-right: 25%;
+  }
+
+  .picture-container {
+    margin-top: 0px !important;
+  }
+  .picture-header {
+    border: none;
+  }
+  .comment-input {
+    display: none;
+    border: none;
+  }
+  .comments {
+    border: none;
+  }
 }
