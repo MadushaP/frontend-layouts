@@ -326,6 +326,8 @@ const like = (heart) => {
     }
 }
 
+
+
 loadStories()
 loadPictures()
 loadEmoji()
