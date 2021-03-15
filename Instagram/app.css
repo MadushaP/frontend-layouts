@@ -85,13 +85,26 @@ body {
   position: absolute;
   top: 50%;
   left: -10%;
+  transition: background-color 1s;
+}
+
+#story-button-left:hover {
+  background-color: white;
+  transition: background-color 0.2s;
 }
 
 #story-button-right {
   position: absolute;
   top: 50%;
   right: -10%;
+  transition: background-color 1s;
 }
+#story-button-right:hover {
+  background-color: white;
+  transition: background-color 0.2s;
+}
+
+
 
 #top-shadow {
   background: linear-gradient(
@@ -187,6 +200,7 @@ body {
   top: 2px;
   margin-right: 5px;
 }
+
 
 #menu-container {
   top: 15px;
@@ -306,7 +320,7 @@ body {
 .story-navigate {
   height: 25px;
   width: 25px;
-  border-radius: 100%;
+  border-radius: 50%;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -620,9 +634,20 @@ body {
     margin-right: 6px;
     width: 108px;
   }
+
+  #story-overlay-close {
+    z-index: 350;
+    right: 30px;
+    top: 40px;
+    position: fixed;
+    height: 42px;
+  }
+
   #story-button-left {
     display: none;
   }
+
+
 
   #story-button-right {
     display: none;

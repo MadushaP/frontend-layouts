@@ -2,9 +2,8 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="app.css">
-    </link>
-
+    <link rel="stylesheet" href="app.css"></link>
+    <link rel="icon" type="image/png" href="images/ig-fav.png">
 </head>
 
 <body>
@@ -40,10 +39,10 @@
     </div>
     <div id="top-nav">
         <div id="logoContainer">
-            <img style="cursor:pointer" id="logo" src="images/logo.png"></img>
+            <img style="cursor:pointer" id="logo" onclick="location.reload()" src="images/logo.png"></img>
         </div>
         <div id="search">
-            <span id="magnify-logo"> 🔍 </span>
+            <span id="magnify-logo"><img style=" height: 13px;" src="images/magnify.png"></span>
             <span><input type="text" id="fname" name="fname" placeholder="Search"></span>
         </div>
         <div id="menu-container">
@@ -121,7 +120,7 @@
         </div>
     </div>
 </body>
-<script src="../Instagram/emoji-picker/fgEmojiPicker.js"></script>
+<script src="emoji-picker/fgEmojiPicker.js"></script>
 <script src="profiles.js"></script>
 <script src="app.js"></script>
 
