@@ -3,6 +3,7 @@ body {
   height: 100%;
   width: 100%;
   margin: 0;
+  background-color: #fafafa;
 }
 
 #story-overlay {
@@ -104,8 +105,6 @@ body {
   transition: background-color 0.2s;
 }
 
-
-
 #top-shadow {
   background: linear-gradient(
     to bottom,
@@ -167,6 +166,7 @@ body {
   min-width: 800px;
   z-index: 200;
   user-select: none;
+  top: 0;
 }
 
 #logoContainer {
@@ -200,7 +200,6 @@ body {
   top: 2px;
   margin-right: 5px;
 }
-
 
 #menu-container {
   top: 15px;
@@ -284,6 +283,7 @@ body {
   width: 600px;
   display: flex;
   transition: right 0.5s;
+  background-color: white;
 }
 
 .story {
@@ -374,6 +374,7 @@ body {
   display: flex;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+  background-color: white;
 }
 
 .picture-header .display-picture {
@@ -459,6 +460,7 @@ body {
   border-bottom: none;
   padding-left: 15px;
   padding-top: 13px;
+  background-color: white;
   padding-bottom: 16px;
 }
 
@@ -472,6 +474,7 @@ body {
   border: 1px solid #dbdbdb;
   border-top: none;
   padding-left: 15px;
+  background-color: white;
 }
 
 .comment-input {
@@ -486,7 +489,9 @@ body {
   display: flex;
   justify-items: center;
   align-items: center;
+  background-color: white;
 }
+
 .comment-input button {
   display: flex;
   justify-items: center;
@@ -529,6 +534,7 @@ body {
 
 .emoji {
   cursor: pointer;
+  background-color: white;
 }
 
 .heart-active {
@@ -646,8 +652,6 @@ body {
   #story-button-left {
     display: none;
   }
-
-
 
   #story-button-right {
     display: none;

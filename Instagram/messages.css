@@ -1,0 +1,67 @@
+#messages-container {
+  min-height: 830px;
+  width: 935px;
+  margin: 0 auto;
+  margin-top: 70px;
+  border: 1px solid #dbdbdb;
+}
+
+#contacts {
+  height: 830px;
+  width: 350px;
+  display: inline-block;
+}
+
+#username-container {
+  width: 350px;
+  height: 60px;
+  background-color: white;
+  border-bottom: 1px solid #dbdbdb;
+  border-right: 1px solid #dbdbdb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#username-container > div {
+  position: absolute;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+#user-messages-container {
+  height: 770px;
+  width: 350px;
+  background-color: white;
+  border-right: 1px solid #dbdbdb;
+  position: absolute;
+  overflow: hidden;
+}
+
+#user-messages-container > span {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 18px;
+  display:block;
+}
+
+.message {
+  height: 72px;
+  width: 349px;
+  background-color: white;
+}
+
+.message:hover {
+  background-color: #efefef;
+}
+
+#conversation {
+  display: inline-block;
+  width: 581px;
+  height: 830px;
+  background: purple;
+}

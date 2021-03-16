@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <link rel="stylesheet" href="app.css"></link>
+    <link rel="stylesheet" href="app.css">
+    </link>
+    <link rel="stylesheet" href="messages.css">
+    </link>
     <link rel="icon" type="image/png" href="images/ig-fav.png">
 </head>
 
@@ -14,12 +18,12 @@
         <span><input type="text" id="fname" name="fname" placeholder="Search"></span>
     </div>
     <div id="menu-container">
-        <span class="menu-logo">
-            <img src="images/home.svg" onclick="route('index')"/>
+        <span class="menu-logo" onclick="route('index')">
+            <img src="images/home-unactive.svg" />
         </span>
-        <span class="menu-logo">
+        <span class="menu-logo" onclick="route('messages')">
             <span id="notifcation">6</span>
-            <img src="images/direct.svg" onclick="route('messages')"/>
+            <img src="images/direct-active.svg" />
         </span>
         <span class="menu-logo">
             <img src="images/discover.svg" />
@@ -30,5 +34,26 @@
         <img id="profile-picture" src="images/pic.jpg"></img>
     </div>
 </div>
-<script src="route.js"></script>
+<div id="messages-container">
+    <div id="contacts">
+        <div id="username-container"><div>m.a.d.u.s.h.a</div></div>
+        <div id="user-messages-container">
+            <span>Messages</span>
+            <div class="message"></div>
+            <div class="message"></div>
+            <div class="message"></div>
+            <div class="message"></div>
+            <div class="message"></div>
+            <div class="message"></div>
+            <div class="message"></div>
+            <div class="message"></div>
+            <div class="message"></div>
+            <div class="message"></div>
+        </div>
+    </div>
+    <div id="conversation">
+    </div>
+</div>
+<script src="route.js"></script>`
+
 </html>
