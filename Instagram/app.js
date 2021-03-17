@@ -119,7 +119,6 @@ const autoNextStory = () => {
         document.querySelectorAll('.progress')[currentStory - 1].classList.remove('full')
         document.querySelectorAll('.progress')[currentStory - 1].classList.add('seen')
         document.querySelectorAll('.progress')[currentStory].classList.add('full')
-
     }, 50000)
 }
 
@@ -254,7 +253,7 @@ const loadPictures = () => {
         let likes = numberWithCommas(Math.floor(Math.random() * 100000))
         var picture = new Image();
         picture.src = "https://picsum.photos/614/614?time=" + (new Date()).getTime() + i;
-        var profilePic = randomProfilePic()
+        let profilePic = randomProfilePic()
 
         let template = `<div class="picture-container">
 <div class="picture-header">

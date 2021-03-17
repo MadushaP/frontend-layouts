@@ -683,13 +683,16 @@ body {
   .picture-container {
     margin-top: 0px !important;
   }
+
   .picture-header {
     border: none;
   }
+
   .comment-input {
     display: none;
     border: none;
   }
+  
   .comments {
     border: none;
   }
