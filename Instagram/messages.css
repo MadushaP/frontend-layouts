@@ -106,7 +106,6 @@ body {
   background-color: #efefef;
 }
 
-
 #conversation {
   display: inline-block;
   width: 584px;
@@ -141,11 +140,39 @@ body {
   width: 30px;
   border-radius: 50px;
   position: absolute;
-  top:13px;
-  left:25px;
+  top: 13px;
+  left: 25px;
 }
 
 #conversation-text {
   width: 584px;
   height: 771px;
+}
+
+#message-input {
+  position: absolute;
+  bottom: 0;
+  margin: 20px;
+  border-radius: 60px;
+  outline: none;
+  padding-left: 60px;
+  border: 1px solid #e5e5e5;
+  width: 508px;
+  height: 44px;
+}
+
+input::-webkit-input-placeholder {
+  left:60px;
+  top:40%;
+  position: absolute;
+}
+
+#emoji {
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  bottom: 30px;
+  cursor: pointer;
+  left: 40px;
+  z-index: 1;
 }

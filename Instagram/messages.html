@@ -45,13 +45,18 @@
     </div>
     <div id="conversation">
         <div id="conversation-top">
-           <img class="small-display-picture" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="/>
-           <div id="conversation-username"></div> 
+            <img class="small-display-picture" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" />
+            <div id="conversation-username"></div>
         </div>
-        <div id="conversation-text"></div>
+        
+        <div id="conversation-text">
+            <img id="emoji"  src="./images/smiley.svg"></img>
+            <input id="message-input" placeholder="Message..."></input>
+        </div>
     </div>
 </div>
 <script src="route.js"></script>
+<script src="emoji-picker/fgEmojiPicker.js"></script>
 <script src="messages.js"></script>
 
 </html>

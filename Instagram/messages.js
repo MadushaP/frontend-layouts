@@ -22,6 +22,19 @@ const randomProfilePic = () => {
 }
 
 
+const loadEmoji = () => {
+  new FgEmojiPicker({
+      trigger: ['#emoji'],
+      position: ['top', 'right'],
+      preFetch: true,
+      emit(obj, triggerElement) {
+        triggerElement.nextElementSibling.value += obj.emoji
+      }
+  })
+}
+
+loadEmoji()
+
 for (let i = 0; i < userNames.length; i++) {
   let messageCont = document.querySelector('#user-messages-container')
   let newDiv = document.createElement('div')
@@ -39,14 +52,14 @@ document.querySelector('#conversation #conversation-top .small-display-picture')
 document.querySelector('#conversation #conversation-top #conversation-username').innerHTML = document.querySelector('#user-messages-container .message .username').innerHTML
 document.querySelector('#conversation #conversation-top').style['border-bottom'] = '1px solid #dbdbdb';
 
-let currentSelectedUsed;
+let currentSelected = document.querySelector('#user-messages-container').children[1].firstChild;
+currentSelected.style = 'background-color: #efefef'
 
 document.querySelector('#user-messages-container').addEventListener('click', (event) => {
-  if (currentSelectedUsed)
-    currentSelectedUsed.style = 'background-color: white'
+  if (currentSelected)
+    currentSelected.style = 'background-color: white'
 
-  currentSelectedUsed = event.target.closest('.message')
-
+  currentSelected = event.target.closest('.message')
   event.target.closest('.message').style = 'background-color: #efefef'
 
   let image = event.target.closest('.message').querySelector('img')
