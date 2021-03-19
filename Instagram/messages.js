@@ -1,4 +1,6 @@
 
+var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
 let messages = [
   'Hey 😄', 'You are a joker 😂 ', 'Certi 💯', 'You want to go kfc', 'I\'m glad 😊',
   'whyyyyy 😭', '😍 wow', '😚 wat', 'yooo 😜', 'hahaha', 'this ui is 🔥', 'LOOOOL',
@@ -13,6 +15,7 @@ let userNames = ['azygouslaurie', 'lori_white', 'eugene_the_machine',
 let randomEmoji = () => {
   return messages[Math.floor(Math.random() * messages.length)];
 }
+
 
 const randomProfilePic = () => {
   var image = new Image()

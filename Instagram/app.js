@@ -4,7 +4,6 @@ let pages = 1
 let currentPage = 1
 var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-
 const loadEmoji = () => {
     new FgEmojiPicker({
         trigger: ['.emoji'],
