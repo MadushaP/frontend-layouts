@@ -48,11 +48,16 @@
             <img class="small-display-picture" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" />
             <div id="conversation-username"></div>
         </div>
-        
-        <div id="conversation-text">
-            <img id="emoji"  src="./images/smiley.svg"></img>
-            <input id="message-input" placeholder="Message..."></input>
+        <div id="text-container">
+            <div id="conversation-text">
+                <div class="message-row">
+                    <div class="bubble-text-reply"></div>
+                </div>
+            </div>
         </div>
+
+        <img id="emoji" src="./images/smiley.svg"></img>
+        <input id="message-input" placeholder="Message..."></input>
     </div>
 </div>
 <script src="route.js"></script>
