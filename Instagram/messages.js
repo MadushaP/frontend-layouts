@@ -53,20 +53,27 @@ for (let i = 0; i < userNames.length; i++) {
   messageCont.appendChild(newDiv)
 }
 
+const selectFirstDM = () => {
+  document.querySelector('#conversation #conversation-top .small-display-picture').src = document.querySelector('#user-messages-container .message img').src
+  document.querySelector('.bubble-text-pic').src = document.querySelector('#user-messages-container .message img').src
+  document.querySelector('#conversation #conversation-top #conversation-username').innerHTML = document.querySelector('#user-messages-container .message .username').innerHTML
+  document.querySelector('#conversation #conversation-top').style['border-bottom'] = '1px solid #dbdbdb';
+  document.querySelector('#conversation #conversation-text .bubble-text-reply').innerHTML = document.querySelector('#user-messages-container .message .preview').innerHTML.split('·')[0]
+}
 
-document.querySelector('#conversation #conversation-top .small-display-picture').src = document.querySelector('#user-messages-container .message img').src
-document.querySelector('.bubble-text-pic').src = document.querySelector('#user-messages-container .message img').src
-document.querySelector('#conversation #conversation-top #conversation-username').innerHTML = document.querySelector('#user-messages-container .message .username').innerHTML
-document.querySelector('#conversation #conversation-top').style['border-bottom'] = '1px solid #dbdbdb';
-document.querySelector('#conversation #conversation-text .bubble-text-reply').innerHTML = document.querySelector('#user-messages-container .message .preview').innerHTML.split('·')[0]
+selectFirstDM()
 
-let currentSelected = document.querySelector('#user-messages-container').children[1].firstChild;
-currentSelected.style = 'background-color: #efefef'
+let currentSelected
+
+if (!isMobile) {
+  currentSelected = document.querySelector('#user-messages-container').children[1].firstChild;
+  currentSelected.style = 'background-color: #efefef'
+
+}
 
 document.querySelector('#user-messages-container').addEventListener('click', (event) => {
-  if (currentSelected.closest('.message') == event.target.closest('.message'))
+  if(event.target.nodeName == "SPAN")
     return
-
 
   if (isMobile) {
     document.querySelector('#contacts').style.display = 'none'
@@ -76,10 +83,11 @@ document.querySelector('#user-messages-container').addEventListener('click', (ev
     document.querySelector('#mobile-top-nav div').setAttribute('onclick', 'onclick=route("messages")')
   }
 
-  document.querySelectorAll('.bubble-text').forEach(dom => dom.parentElement.parentElement.remove())
-
-  if (currentSelected)
+  if (currentSelected) {
     currentSelected.style = 'background-color: white'
+  }
+
+  document.querySelectorAll('.bubble-text').forEach(dom => dom.parentElement.parentElement.remove())
 
   currentSelected = event.target.closest('.message')
   event.target.closest('.message').style = 'background-color: #efefef'

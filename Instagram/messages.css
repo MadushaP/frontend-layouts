@@ -347,6 +347,7 @@ body {
     height: 50px;
     font-size: 20px;
     margin-bottom: 80px;
+    background-clip: padding-box;
   }
 
   .bubble-text-reply {
@@ -369,7 +370,8 @@ body {
 
   input::-webkit-input-placeholder {
     left: 12%;
-    font-size: 16px;
+    font-size: 22px;
+    position: absolute;
   }
 
   .bubble-text-pic {
