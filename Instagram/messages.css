@@ -166,7 +166,7 @@ body {
   width: 487px;
 }
 
-input::-webkit-input-placeholder {
+#message-input::-webkit-input-placeholder {
   left: 60px;
   top: 40%;
   position: absolute;
