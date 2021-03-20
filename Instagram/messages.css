@@ -226,10 +226,10 @@ input::-webkit-input-placeholder {
 }
 
 .bubble-text-pic {
-  height: 30px;
-  width: 30px;
+  height: 24px;
+  width: 24px;
   bottom: 0px;
-  left: 15px;
+  left: 21px;
   position: absolute;
   border-radius: 50px;
 }
@@ -370,5 +370,16 @@ input::-webkit-input-placeholder {
   input::-webkit-input-placeholder {
     left: 12%;
     font-size: 16px;
+  }
+
+  .bubble-text-pic {
+    height: 35px;
+    width: 35px;
+    bottom: -5px;
+    left: 18px;
+  }
+
+  .bubble-text-reply {
+    left: 60px;
   }
 }
