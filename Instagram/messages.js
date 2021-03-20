@@ -45,7 +45,7 @@ for (let i = 0; i < userNames.length; i++) {
   let messageCont = document.querySelector('#user-messages-container')
   let newDiv = document.createElement('div')
   let profilePic = randomProfilePic()
-  newDiv.innerHTML = `<button class="message" autofocus>
+  newDiv.innerHTML = `<button class="message">
         <img src=${profilePic.src}>
         <div class="username">${userNames[i]}</div>
         <div class="preview">${randomEmoji()} · ${12 - i}h</div>
@@ -55,6 +55,7 @@ for (let i = 0; i < userNames.length; i++) {
 
 
 document.querySelector('#conversation #conversation-top .small-display-picture').src = document.querySelector('#user-messages-container .message img').src
+document.querySelector('.bubble-text-pic').src = document.querySelector('#user-messages-container .message img').src
 document.querySelector('#conversation #conversation-top #conversation-username').innerHTML = document.querySelector('#user-messages-container .message .username').innerHTML
 document.querySelector('#conversation #conversation-top').style['border-bottom'] = '1px solid #dbdbdb';
 document.querySelector('#conversation #conversation-text .bubble-text-reply').innerHTML = document.querySelector('#user-messages-container .message .preview').innerHTML.split('·')[0]
@@ -63,8 +64,17 @@ let currentSelected = document.querySelector('#user-messages-container').childre
 currentSelected.style = 'background-color: #efefef'
 
 document.querySelector('#user-messages-container').addEventListener('click', (event) => {
-  if(currentSelected.closest('.message') == event.target.closest('.message'))
+  if (currentSelected.closest('.message') == event.target.closest('.message'))
     return
+
+
+  if (isMobile) {
+    document.querySelector('#contacts').style.display = 'none'
+    document.querySelector('#user-messages-container').style.display = 'none'
+    document.querySelector('#conversation').style.display = 'block'
+    document.querySelector('#mobile-top-nav div').innerHTML = "‹ Messages"
+    document.querySelector('#mobile-top-nav div').setAttribute('onclick', 'onclick=route("messages")')
+  }
 
   document.querySelectorAll('.bubble-text').forEach(dom => dom.parentElement.parentElement.remove())
 
@@ -79,6 +89,7 @@ document.querySelector('#user-messages-container').addEventListener('click', (ev
   let preview = event.target.closest('.message').querySelector('.preview').innerHTML.split('·')[0]
 
   document.querySelector('#conversation #conversation-top .small-display-picture').src = image.src
+  document.querySelector('.bubble-text-pic').src = image.src
   document.querySelector('#conversation #conversation-top #conversation-username').innerHTML = username
   document.querySelector('#conversation #conversation-top').style['border-bottom'] = '1px solid #dbdbdb';
   document.querySelector('#conversation #conversation-text .bubble-text-reply').innerHTML = preview
@@ -87,6 +98,7 @@ document.querySelector('#user-messages-container').addEventListener('click', (ev
 document.querySelector('#message-input').addEventListener("keyup", (event) => {
   if (event.target.value == '')
     return
+
   if (event.key === "Enter") {
     let newBubbleText = document.createElement('div')
     newBubbleText.innerHTML = `<div class="message-row">

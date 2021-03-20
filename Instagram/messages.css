@@ -187,7 +187,7 @@ input::-webkit-input-placeholder {
   border-radius: 22px;
   border: 1px solid #efefef;
   position: relative;
-  left: 20px;
+  left: 50px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif;
   font-size: 14px;
@@ -225,8 +225,22 @@ input::-webkit-input-placeholder {
   overflow: auto;
 }
 
+.bubble-text-pic {
+  height: 30px;
+  width: 30px;
+  bottom: 0px;
+  left: 15px;
+  position: absolute;
+  border-radius: 50px;
+}
+
+#mobile-top-nav {
+  display: none;
+}
+
 @media screen and (max-device-width: 480px) {
   body {
+    position: relative;
     height: 100%;
     width: 100%;
   }
@@ -234,8 +248,9 @@ input::-webkit-input-placeholder {
   #user-messages-container {
     height: 100%;
   }
+
   #top-nav {
-    display: none;
+    visibility: hidden;
   }
 
   #contacts {
@@ -243,7 +258,20 @@ input::-webkit-input-placeholder {
   }
 
   #username-container {
+    display: none;
+  }
+
+  #mobile-top-nav {
+    display: block;
     width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif;
+    font-size: 35px;
+    font-weight: 700;
+    background-color: white;
+    padding-left: 20px;
+    padding-top: 20px;
+    height: 60px;
   }
 
   #user-messages-container {
@@ -258,6 +286,10 @@ input::-webkit-input-placeholder {
     display: none;
   }
 
+  #conversation-username {
+    font-size: 25px;
+    left: 85px;
+  }
   #username-container > div {
     left: 45%;
   }
@@ -270,23 +302,73 @@ input::-webkit-input-placeholder {
   .message .username {
     left: 15%;
     font-size: 22px;
-    font-weight: 600;
+    font-weight: 500;
   }
 
   .message .preview {
     left: 15%;
     top: 50%;
-    font-size: 21px;
+    font-size: 22px;
   }
 
   .contacts {
     width: 100%;
   }
+
   .message img {
     height: 65px;
     width: 65px;
   }
   #user-messages-container > span {
+    font-size: 25px;
+    padding-left: 20px;
+    font-weight: 700;
+  }
+
+  #conversation {
+    height: 95%;
+    width: 100%;
+  }
+
+  #conversation-top {
+    width: 100%;
+    height: 72px;
+  }
+
+  #conversation-text {
+    bottom: 20%;
+  }
+
+  #text-container {
+    height: 95%;
+  }
+
+  #message-input {
+    height: 50px;
     font-size: 20px;
+    margin-bottom: 80px;
+  }
+
+  .bubble-text-reply {
+    font-size: 24px;
+  }
+  .message-row {
+    margin: 6px auto;
+  }
+  .bubble-text {
+    font-size: 24px;
+  }
+  #emoji {
+    bottom: 98px;
+  }
+
+  .small-display-picture {
+    height: 45px;
+    width: 45px;
+  }
+
+  input::-webkit-input-placeholder {
+    left: 12%;
+    font-size: 16px;
   }
 }

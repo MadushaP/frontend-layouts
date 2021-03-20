@@ -2,10 +2,12 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="app.css"></link>
+    <link rel="stylesheet" href="app.css">
+    </link>
     <link rel="stylesheet" href="messages.css">
     </link>
     <link rel="icon" type="image/png" href="images/ig-fav.png">
+
 </head>
 
 <div id="top-nav">
@@ -33,6 +35,9 @@
         <img id="profile-picture" src="images/pic.jpg"></img>
     </div>
 </div>
+<div id="mobile-top-nav">
+    <div onclick="route('index')"> ‹ Direct</div>
+</div>
 <div id="messages-container">
     <div id="contacts">
         <div id="username-container">
@@ -50,11 +55,11 @@
         <div id="text-container">
             <div id="conversation-text">
                 <div class="message-row">
+                    <img class="bubble-text-pic" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" />
                     <div class="bubble-text-reply"></div>
                 </div>
             </div>
         </div>
-
         <img id="emoji" src="./images/smiley.svg"></img>
         <input id="message-input" placeholder="Message..."></input>
     </div>
