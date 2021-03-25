@@ -80,7 +80,7 @@ const navigate = (direction) => {
 
 let currentStory = 0
 let progTimer
-
+let loadedStories = []
 const handleMouse = (e) => {
     if (e.changedTouches[0].pageX < (window.innerWidth / 2)) {
         navigateUserStory("left")
@@ -98,49 +98,61 @@ const closeStoryOverlay = () => {
     document.querySelectorAll('.progress').forEach(element => {
         element.classList.remove('full')
         element.classList.remove('seen')
-
     })
     currentStory = 0
-    document.removeEventListener("touchstart", handleMouse);
+	document.removeEventListener("touchstart", handleMouse);
     document.getElementsByTagName('html')[0].style.position = null
+	document.querySelector('#active-story-pic').src = "https://thumbs.gfycat.com/DearWellinformedDalmatian-size_restricted.gif"
 }
 
 const autoNextStory = () => {
-    return setInterval(() => {
+	return setInterval(() => {
         currentStory++
         if (currentStory == 5) {
             clearTimeout(progTimer)
             closeStoryOverlay()
             return
         }
-        let picSumResolution = isMobile ? '1000' : '614'
-        document.querySelector('#active-story-pic').src = `https://picsum.photos/${picSumResolution}?time=` + (new Date()).getTime()
+        document.querySelector('#active-story-pic').src = loadedStories[currentStory]
         document.querySelectorAll('.progress')[currentStory - 1].classList.remove('full')
         document.querySelectorAll('.progress')[currentStory - 1].classList.add('seen')
         document.querySelectorAll('.progress')[currentStory].classList.add('full')
-    }, 50000)
+    }, 5000)
+}
+
+const generateUserStories = (num) => {
+  let picSumResolution = isMobile ? '1000' : '614'
+  let picSumPromises = []
+  for(let i = 0; i < num; i++) {
+	picSumPromises.push(fetch(`https://picsum.photos/${picSumResolution}`)
+					   .then(response => response.blob())
+					   .then(blob => URL.createObjectURL(blob)))
+  }
+
+  return Promise.all(picSumPromises)
 }
 
 const userStory = (story) => {
     let [displayPictureDom, username] = story.children
+	story.style.opacity = 0.5
+  
     document.querySelector('#user-profile').innerHTML = `<img src=${displayPictureDom.src}></img>
                                                             <div class="text-bold">
                                                                 ${username.outerHTML}
                                                             </div>
                                                           <span>10h</span>`
 
-
-    document.querySelector('#story-overlay').style.display = 'block'
+	document.querySelector('#story-overlay').style.display = 'block'
     document.querySelector('#main-container').style.display = 'none'
     document.getElementsByTagName('html')[0].style.position = 'fixed'
+    document.addEventListener("touchstart", handleMouse)
 
-
-    document.addEventListener("touchstart", handleMouse);
-    setTimeout(() => {
-        document.querySelectorAll('.progress')[0].classList.add('full')
-    }, 10)
-
-    progTimer = autoNextStory()
+    generateUserStories(5).then(images => {
+		loadedStories = images
+		document.querySelector('#active-story-pic').src = loadedStories[0]
+		document.querySelectorAll('.progress')[0].classList.add('full')
+		progTimer = autoNextStory()
+	})
 }
 
 const navigateUserStory = (side) => {
@@ -166,9 +178,7 @@ const navigateUserStory = (side) => {
         setTimeout(() => { progDom[currentStory].classList.add('full') }, 10)
     }
 
-    let picSumResolution = isMobile ? '1000' : '614'
-    document.querySelector('#active-story-pic').src = `https://picsum.photos/${picSumResolution}?time=` + (new Date()).getTime()
-
+    document.querySelector('#active-story-pic').src = loadedStories[currentStory]
     progTimer = autoNextStory()
 }
 
